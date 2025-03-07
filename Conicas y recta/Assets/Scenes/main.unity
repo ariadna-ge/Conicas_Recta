@@ -3819,10 +3819,10 @@ MonoBehaviour:
   sl_k: {fileID: 1710820211}
   sl_t: {fileID: 2009675977}
   lbl_a: {fileID: 1684401099}
-  lnb_b: {fileID: 419308724}
-  lnb_h: {fileID: 1581435963}
-  lnb_k: {fileID: 477345938}
-  lnb_t: {fileID: 484548339}
+  lbl_b: {fileID: 419308724}
+  lbl_h: {fileID: 1581435963}
+  lbl_k: {fileID: 477345938}
+  lbl_t: {fileID: 484548339}
   matRecta: {fileID: 2100000, guid: 694e8a7f324312d488148c275fec15f8, type: 2}
   matCircunferencia: {fileID: 2100000, guid: c68c6eec3a38f7b428ab483654f0c3ef, type: 2}
   matElipse: {fileID: 2100000, guid: b2313eeeb314d654d9366c693268f467, type: 2}

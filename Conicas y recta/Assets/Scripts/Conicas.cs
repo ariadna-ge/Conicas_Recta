@@ -25,7 +25,7 @@ public class Conicas : MonoBehaviour
 
     private int resolucion = 1000;
 
-    public Text lbl_a, lnb_b, lnb_h, lnb_k, lnb_t;
+    public Text lbl_a, lbl_b, lbl_h, lbl_k, lbl_t;
     public Material matRecta, matCircunferencia, matElipse, matParabola, matHiperbola;
     private Vector3[] posPuntos;
 
@@ -37,10 +37,10 @@ public class Conicas : MonoBehaviour
             sl_k.gameObject.SetActive(false);
             sl_t.gameObject.SetActive(false);
             lbl_a.gameObject.SetActive(false);
-            lnb_b.gameObject.SetActive(false);
-            lnb_h.gameObject.SetActive(false);
-            lnb_k.gameObject.SetActive(false);
-            lnb_t.gameObject.SetActive(false);
+            lbl_b.gameObject.SetActive(false);
+            lbl_h.gameObject.SetActive(false);
+            lbl_k.gameObject.SetActive(false);
+            lbl_t.gameObject.SetActive(false);
     }
 
     public void DibujaConicas(){
@@ -63,10 +63,10 @@ public class Conicas : MonoBehaviour
                 lr.material = matRecta;
                 ResetSlidersEtiquetas();
                 lbl_a.text = "ax";
-                lnb_b.text = "ay";
-                lnb_h.text = "bx";
-                lnb_k.text = "by";
-                lnb_t.gameObject.SetActive(false);
+                lbl_b.text = "ay";
+                lbl_h.text = "bx";
+                lbl_k.text = "by";
+                lbl_t.gameObject.SetActive(false);
                 sl_t.gameObject.SetActive(false);
                 posPuntos = CreaRecta(a, b,  h, k, resolucion);
 
@@ -78,9 +78,9 @@ public class Conicas : MonoBehaviour
                 ResetSlidersEtiquetas();
                 lbl_a.gameObject.SetActive(false);
                 sl_a.gameObject.SetActive(false);
-                lnb_b.text = "r";
+                lbl_b.text = "r";
                 sl_t.gameObject.SetActive(false);
-                lnb_t.gameObject.SetActive(false);
+                lbl_t.gameObject.SetActive(false);
                 posPuntos = CreaCircunferencia(b, h, k, resolucion);
                 break;
             
@@ -98,7 +98,7 @@ public class Conicas : MonoBehaviour
                 posPuntos = CreaParabola(b, h, k, t, resolucion);
                 lbl_a.gameObject.SetActive(false);
                 sl_a.gameObject.SetActive(false);
-                lnb_b.text = "p";
+                lbl_b.text = "p";
 
                 break;
 
@@ -130,16 +130,16 @@ public class Conicas : MonoBehaviour
         sl_t.gameObject.SetActive(true);
 
         lbl_a.gameObject.SetActive(true);
-        lnb_b.gameObject.SetActive(true);
-        lnb_h.gameObject.SetActive(true);
-        lnb_k.gameObject.SetActive(true);
-        lnb_t.gameObject.SetActive(true);
+        lbl_b.gameObject.SetActive(true);
+        lbl_h.gameObject.SetActive(true);
+        lbl_k.gameObject.SetActive(true);
+        lbl_t.gameObject.SetActive(true);
 
         lbl_a.text = "a";
-        lnb_b.text = "b";
-        lnb_h.text = "h";
-        lnb_k.text = "k";
-        lnb_t.text = "t";
+        lbl_b.text = "b";
+        lbl_h.text = "h";
+        lbl_k.text = "k";
+        lbl_t.text = "t";
     }
 
     public void BtnRecta(){
