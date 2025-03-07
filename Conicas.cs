@@ -1,10 +1,10 @@
+using System;
 using system.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Conicas: MonoBehaviour
-
 {
     public Text txtConicas;
     private int conicaSeleccionada = 0; // 0- Sin seleccion, 1- Recta, 2- Circuferencia, 3- Elipse, 4- Elipse, 5- Hiperbola
@@ -20,7 +20,6 @@ public class Conicas: MonoBehaviour
 
     public Slider sl_k;
     private float k = 1;
-
     public Slider sl_t;
     private float t = 45;
 
@@ -28,11 +27,20 @@ public class Conicas: MonoBehaviour
 
     public Text lbl_a, lbl_b, lbl_h, lbl_k, lbl_t;
     public Material matRecta, matCircuferencia, matElipse, matParabola, matHiperbola;
-
     private Vector3[] posPuntos;
 
-    private void Awake (){
-        sl_a.enabled = false;
+
+    public void Awake(){
+            sl_a.gameObject.SetActive(false);
+            sl_b.gameObject.SetActive(false);
+            sl_h.gameObject.SetActive(false);
+            sl_k.gameObject.SetActive(false);
+            sl_t.gameObject.SetActive(false);
+            lbl_a.gameObject.SetActive(false);
+            lbl_b.gameObject.SetActive(false);
+            lbl_h.gameObject.SetActive(false);
+            lbl_k.gameObject.SetActive(false);
+            lbl_t.gameObject.SetActive(false);
     }
 
     public void DibujaConicas(){
@@ -49,12 +57,8 @@ public class Conicas: MonoBehaviour
             t = sl_t.value;
 
 
-
-            
-
-            switch(conicaSeleccionada)
-            {
-                case 1: //Recta
+          switch(conicaSeleccionada){
+            case 1: //recta
                 txtConicas.text = "Recta";
                 lr.material = matRecta;
                 ResetSlidersEtiquetas();
@@ -67,7 +71,7 @@ public class Conicas: MonoBehaviour
                 posPuntos = CreaRecta (a, b , h, k, resolucion);
                 break;
 
-                case 2: //Circuferencia
+                case 2: //circuferencia
                 txtConicas.text = "Circuferencia";
                 lr.material = matCircuferencia;
                 ResetSlidersEtiquetas();
@@ -87,24 +91,21 @@ public class Conicas: MonoBehaviour
                 break;
 
                 case 4: //Parabola
-                txtConicas.text = "Parabola";
+                txtConicas.text = "Parábola";
                 lr.material = matParabola;
                 ResetSlidersEtiquetas();
+                posPuntos = CreaParabola(b, h, k, t, resolucion);
                 lbl_a.gameObject.SetActive(false);
                 sl_a.gameObject.SetActive(false);
                 lbl_b.text = "p";
-                posPuntos = CreaParabola(b, h, k, t, resolucion);
                 break;
 
-                case 5: //Hiperbola
-                txtConicas.text = "Hiperbola";
+                case 5: //Hipérbola
+                txtConicas.text = "Hipérbola";
                 lr.material = matHiperbola;
                 ResetSlidersEtiquetas();
-                posPuntos(a, b, h, h, t, resolucion);
+                posPuntos = CreaHiperbola(a, b, h, k, t, resolucion);
                 break;
-
-
-
             }
 
             for (int i = 0; i <= resolucion; i ++){
@@ -114,9 +115,6 @@ public class Conicas: MonoBehaviour
 
         } 
 
-    
-
-
     }
 
     public void ResetSlidersEtiquetas(){
@@ -125,12 +123,6 @@ public class Conicas: MonoBehaviour
         sl_h.gameObject.SetActive(true);
         sl_k.gameObject.SetActive(true);
         sl_t.gameObject.SetActive(true);
-
-        sl_a.enabled = true;
-        sl_b.enabled = true;
-        sl_h.enabled = true;
-        sl_k.enabled = true;
-        sl_t.enabled = true;
 
         lbl_a.gameObject.SetActive(true);
         lbl_b.gameObject.SetActive(true);
@@ -149,116 +141,94 @@ public class Conicas: MonoBehaviour
     public void BtnRecta(){
         conicaSeleccionada = 1;
         DibujaConicas();
-
     }
-
 
     private Vector3[] CreaRecta(float ax, float ay, float bx, float by, int resolucion){
-        posPuntos = new Vector3[resolucion + 1];
+        posPuntos = new Vector3[resolucion+1];
         float dx = bx - ax;
         float dy = by - ay;
-        for (int i = 0; i <= resolucion; i++){
+
+        for (int i =0; i<= resolucion; i++){
             posPuntos[i] = new Vector3(ax + dx * i / resolucion, ay + dy * i / resolucion);
-
         }
-
         return posPuntos;
+    } 
 
-    }
-
-    
-
-    public void BtnCircuferencia(){
+    public void BtnCircunferencia(){
         conicaSeleccionada = 2;
         DibujaConicas();
-
     }
 
-    private Vector3[] CreaCircuferencia(float r, float h, float k, int resolucion){
-        posPuntos = new Vector3[resolucion +1];
+    private Vector3[] CreaCircunferencia(float r, float h, float k, int resolucion){
+        posPuntos = new Vector3[resolucion+1];
         Vector3 centro = new Vector3(h, k, 0);
-        for (int i = 0; i<= resolucion, i++){
-            float angulo = (float)i / (float)resolucion * 2 * Mathf.PI;
-            posPuntos[i] = new Vector3(r*Mathf.Cos(angulo), r*Mathf.Sin(angulo), 0);
+        for (int i = 0; i<= resolucion; i++){
+            float angulo = ((float)i / (float)resolucion) * 2 * Mathf.PI;
+            posPuntos[i] = new Vector3(r * Mathf.Cos(angulo), r * MathF.Sin(angulo), 0);
             posPuntos[i] = posPuntos[i] + centro;
         }
-
         return posPuntos;
-
     }
 
     public void BtnElipse(){
         conicaSeleccionada = 3;
         DibujaConicas();
-
     }
 
-       private Vector3[] CreaElipse(float a, float b, float h, float k, float theta,  int resolucion){
-        posPuntos = new Vector3[resolucion +1];
+    private Vector3[] CreaElipse(float a, float b, float h, float k, float theta, int resolucion){
+        posPuntos = new Vector3[resolucion+1];
         Quaternion q = Quaternion.AngleAxis(theta, Vector3.forward);
+
         Vector3 centro = new Vector3(h, k, 0);
-        for (int i = 0; i<= resolucion, i++){
-            float angulo = (float)i / (float)resolucion * 2 * Mathf.PI;
-            posPuntos[i] = new Vector3(a*Mathf.Cos(angulo), b*Mathf.Sin(angulo), 0);
+
+        for (int i = 0; i<= resolucion; i++){
+            float angulo = ((float)i / (float)resolucion) * 2 * Mathf.PI;
+            posPuntos[i] = new Vector3(a * Mathf.Cos(angulo), b * MathF.Sin(angulo), 0);
             posPuntos[i] = q * posPuntos[i] + centro;
         }
-
         return posPuntos;
-
     }
 
-    public void Btn()Parabola{
+    public void BtnParabola(){
         conicaSeleccionada = 4;
         DibujaConicas();
-
     }
 
-      private Vector3[] CreaParabola(float p, float h, float k, float theta,  int resolucion){
-        posPuntos = new Vector3[resolucion +1];
+    private Vector3[] CreaParabola(float p, float h, float k, float theta, int resolucion){
+        posPuntos = new Vector3[resolucion+1];
         Quaternion q = Quaternion.AngleAxis(theta, Vector3.forward);
+
         Vector3 vertice = new Vector3(h, k, 0);
-        for (int i = 0; i<= resolucion, i++){
-            float angulo = (float)i / (float)resolucion * 2 * Mathf.PI;
-            posPuntos[i] = new Vector3(i(resolucion/2), (1/(4*p))*Mathf.Pow(i - (resolucion / 2), 2), 0);
+
+        for (int i = 0; i<= resolucion; i++){
+            float angulo = ((float)i / (float)resolucion) * 2 * Mathf.PI;
+            posPuntos[i] = new Vector3(i-(resolucion/2), (1/(4*p)) * Mathf.Pow(i-(resolucion/2), 2), 0);
             posPuntos[i] = q * posPuntos[i] + vertice;
         }
-
         return posPuntos;
-
     }
-
-
 
     public void BtnHiperbola(){
         conicaSeleccionada = 5;
         DibujaConicas();
-
     }
 
     private Vector3[] CreaHiperbola(float a, float b, float h, float k, float theta, int resolucion){
     posPuntos = new Vector3[resolucion + 1];
-    Quaternion q = Quaternion.AngleAxis(theta, Vector3.forward);  // Rotación en el plano XY
-    Vector3 vertice = new Vector3(h, k, 0);  // Centro de la hipérbola
+    Quaternion q = Quaternion.AngleAxis(theta, Vector3.forward);
 
-    // Crear puntos para la hipérbola
-    for (int i = 0; i <= resolucion; i++)
-    {
-        // Angulo para recorrer la hipérbola de manera progresiva
-        float angulo = (float)i / (float)resolucion * Mathf.PI;  // Usamos solo el semi-ángulo, la hipérbola tiene dos ramas
-        float x = h + a * Mathf.Cosh(angulo);  // Ecuación hiperbólica para el eje X
-        float y = k + b * Mathf.Sinh(angulo);  // Ecuación hiperbólica para el eje Y
+    Vector3 centro = new Vector3(h, k, 0);
 
-        // Guardar los puntos de la hipérbola en el array
-        posPuntos[i] = new Vector3(x, y, 0);
-        
-        // Aplicar rotación al punto y trasladarlo al centro (h, k)
-        posPuntos[i] = q * posPuntos[i] + vertice;
+    for (int i = 0; i <= resolucion / 2; i++){
+        float t = ((float)i / (resolucion / 2)) * 2 - 1; // Valores en el rango [-1, 1]
+        float x = a * (1 / Mathf.Cos(t));
+        float y = b * Mathf.Tan(t);
+
+        posPuntos[i] = q * new Vector3(x, y, 0) + centro;
+        posPuntos[resolucion - i] = q * new Vector3(-x, -y, 0) + centro; // Segunda rama
     }
 
     return posPuntos;
 }
-
-
-
 
 }
