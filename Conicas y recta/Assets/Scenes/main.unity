@@ -467,7 +467,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
         m_MethodName: BtnElipse
         m_Mode: 1
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
         m_MethodName: BtnHiperbola
         m_Mode: 1
@@ -1353,16 +1353,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1495750751}
   m_HandleRect: {fileID: 1152180983}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -4
+  m_MaxValue: 4
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
-        m_MethodName: DibujarConicas
+        m_MethodName: DibujaConicas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
         m_MethodName: BtnCircunferencia
         m_Mode: 1
@@ -3166,172 +3166,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495750750}
   m_CullTransparentMesh: 1
---- !u!1 &1545939567
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1545939569}
-  - component: {fileID: 1545939570}
-  - component: {fileID: 1545939571}
-  m_Layer: 0
-  m_Name: Conicas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1545939569
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545939567}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75954914, y: -2.4547422, z: -9.968505}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1545939570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545939567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cb2f8ab8b72454c86ab67d64f52a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtConicas: {fileID: 1307942397}
-  sld_a: {fileID: 2026439403}
-  sld_b: {fileID: 470398502}
-  sld_h: {fileID: 1573849723}
-  sld_k: {fileID: 1710820211}
-  sld_t: {fileID: 2009675977}
-  resolucion: 1000
-  lbl_a: {fileID: 1684401099}
-  lbl_b: {fileID: 419308724}
-  lbl_h: {fileID: 1581435963}
-  lbl_k: {fileID: 477345938}
-  lbl_t: {fileID: 484548339}
-  matRecta: {fileID: 2100000, guid: 694e8a7f324312d488148c275fec15f8, type: 2}
-  matCircunferencia: {fileID: 2100000, guid: c68c6eec3a38f7b428ab483654f0c3ef, type: 2}
-  matElipse: {fileID: 2100000, guid: b2313eeeb314d654d9366c693268f467, type: 2}
-  matParabola: {fileID: 2100000, guid: add97d3f00937494a8fa7121f368ceb5, type: 2}
-  matHiperbola: {fileID: 2100000, guid: e370036b252de694cbb6f328c948f2c4, type: 2}
---- !u!120 &1545939571
-LineRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545939567}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 694e8a7f324312d488148c275fec15f8, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
-  m_Parameters:
-    serializedVersion: 3
-    widthMultiplier: 1
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0.004
-        value: 0.05
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 1
-    textureMode: 0
-    textureScale: {x: 1, y: 1}
-    shadowBias: 0.5
-    generateLightingData: 0
-  m_MaskInteraction: 0
-  m_UseWorldSpace: 1
-  m_Loop: 0
-  m_ApplyActiveColorSpace: 1
 --- !u!1 &1573849721
 GameObject:
   m_ObjectHideFlags: 0
@@ -3415,16 +3249,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 49504560}
   m_HandleRect: {fileID: 1701903794}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -4
+  m_MaxValue: 4
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
-        m_MethodName: DibujarConicas
+        m_MethodName: DibujaConicas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3832,9 +3666,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
-        m_MethodName: DibujarConicas
+        m_MethodName: DibujaConicas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3844,6 +3678,171 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1794891071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1794891074}
+  - component: {fileID: 1794891073}
+  - component: {fileID: 1794891072}
+  m_Layer: 0
+  m_Name: Conicas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!120 &1794891072
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794891071}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 694e8a7f324312d488148c275fec15f8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.06666756
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 1
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
+--- !u!114 &1794891073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794891071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f27d0a2e6d8d2d42bdda6efd3308b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtConicas: {fileID: 1307942397}
+  sl_a: {fileID: 2026439403}
+  sl_b: {fileID: 470398502}
+  sl_h: {fileID: 1573849723}
+  sl_k: {fileID: 1710820211}
+  sl_t: {fileID: 2009675977}
+  lbl_a: {fileID: 1684401099}
+  lnb_b: {fileID: 419308724}
+  lnb_h: {fileID: 1581435963}
+  lnb_k: {fileID: 477345938}
+  lnb_t: {fileID: 484548339}
+  matRecta: {fileID: 2100000, guid: 694e8a7f324312d488148c275fec15f8, type: 2}
+  matCircunferencia: {fileID: 2100000, guid: c68c6eec3a38f7b428ab483654f0c3ef, type: 2}
+  matElipse: {fileID: 2100000, guid: b2313eeeb314d654d9366c693268f467, type: 2}
+  matParabola: {fileID: 2100000, guid: add97d3f00937494a8fa7121f368ceb5, type: 2}
+  matHiperbola: {fileID: 2100000, guid: e370036b252de694cbb6f328c948f2c4, type: 2}
+--- !u!4 &1794891074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794891071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.75954914, y: -2.4547422, z: -9.968505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833156898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,7 +4097,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
         m_MethodName: BtnRecta
         m_Mode: 1
@@ -4306,7 +4305,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
         m_MethodName: BtnParabola
         m_Mode: 1
@@ -4439,16 +4438,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 112882027}
   m_HandleRect: {fileID: 469289843}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -180
+  m_MaxValue: 180
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
-        m_MethodName: DibujarConicas
+        m_MethodName: DibujaConicas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4616,16 +4615,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 2017308470}
   m_HandleRect: {fileID: 212759200}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -4
+  m_MaxValue: 4
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545939570}
+      - m_Target: {fileID: 1794891073}
         m_TargetAssemblyTypeName: Conicas, Assembly-CSharp
-        m_MethodName: DibujarConicas
+        m_MethodName: DibujaConicas
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4755,4 +4754,4 @@ SceneRoots:
   - {fileID: 1844078159}
   - {fileID: 1833156901}
   - {fileID: 992520715}
-  - {fileID: 1545939569}
+  - {fileID: 1794891074}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,139 +7,232 @@ using UnityEngine.UI;
 public class Conicas : MonoBehaviour
 {
     public Text txtConicas;
-    private int conicaSeleccionada = 0;
-    /* 0.- sin selección
-    1.- recta
-    2.- circunferencia
-    3.- elipse
-    4.- parabola
-    5.- hiperbola  */ 
+    private int conicaSeleccionada = 0; // 0 sin seleccion 1 con recta 2- Circunferencia 3- Elipse 4, Parabola, 5- Hiperbola
+    
+    public Slider sl_a;
+    private float a=5;
 
-    public Slider sld_a;
-    private float a = 5;
+    public Slider sl_b;
+    private float b=3;
 
-    public Slider sld_b;
-    private float b = 3;
+    public Slider sl_h;
+    private float h=1;
 
-    public Slider sld_h;
-    private float h = 1;
+    public Slider sl_k;
+    private float k=1;
+    public Slider sl_t;
+    private float t=45;
 
-    public Slider sld_k;
-    private float k = 1;
+    private int resolucion = 1000;
 
-    public Slider sld_t;
-    private float t = 45;
-
-    public int resolucion = 1000;
-    public Text lbl_a, lbl_b, lbl_h, lbl_k, lbl_t;
+    public Text lbl_a, lnb_b, lnb_h, lnb_k, lnb_t;
     public Material matRecta, matCircunferencia, matElipse, matParabola, matHiperbola;
-
     private Vector3[] posPuntos;
 
-    public void DibujarConicas(){
+
+    public void Awake(){
+            sl_a.gameObject.SetActive(false);
+            sl_b.gameObject.SetActive(false);
+            sl_h.gameObject.SetActive(false);
+            sl_k.gameObject.SetActive(false);
+            sl_t.gameObject.SetActive(false);
+            lbl_a.gameObject.SetActive(false);
+            lnb_b.gameObject.SetActive(false);
+            lnb_h.gameObject.SetActive(false);
+            lnb_k.gameObject.SetActive(false);
+            lnb_t.gameObject.SetActive(false);
+    }
+
+    public void DibujaConicas(){
+
         if (conicaSeleccionada != 0){
 
-        LineRenderer lr = GetComponent<LineRenderer>();
-        lr.SetVertexCount(resolucion + 1);
+            LineRenderer lr = GetComponent<LineRenderer>();
+            lr.SetVertexCount(resolucion+1);
 
-        a = sld_a.value;
-        b = sld_b.value;
-        h = sld_h.value;
-        k = sld_k.value;
-        t = sld_t.value;
+            a = sl_a.value;
+            b = sl_b.value;
+            h = sl_h.value;
+            k = sl_k.value;
+            t = sl_t.value;
 
-            switch(conicaSeleccionada){
+
+          switch (conicaSeleccionada){
             case 1: //recta
                 txtConicas.text = "Recta";
                 lr.material = matRecta;
                 ResetSlidersEtiquetas();
                 lbl_a.text = "ax";
-                lbl_b.text = "ay";
-                lbl_h.text = "bx";
-                lbl_k.text = "by";
-                lbl_t.gameObject.SetActive(false);
-                sld_t.gameObject.SetActive(false);
-                posPuntos = CrearRecta(a, b, h, k, resolucion);
+                lnb_b.text = "ay";
+                lnb_h.text = "bx";
+                lnb_k.text = "by";
+                lnb_t.gameObject.SetActive(false);
+                sl_t.gameObject.SetActive(false);
+                posPuntos = CreaRecta(a, b,  h, k, resolucion);
+
                 break;
-            case 2: // circunferencia
+
+            case 2: //circunferencia
                 txtConicas.text = "Circunferencia";
                 lr.material = matCircunferencia;
                 ResetSlidersEtiquetas();
+                lbl_a.gameObject.SetActive(false);
+                sl_a.gameObject.SetActive(false);
+                lnb_b.text = "r";
+                sl_t.gameObject.SetActive(false);
+                lnb_t.gameObject.SetActive(false);
+                posPuntos = CreaCircunferencia(b, h, k, resolucion);
                 break;
-            case 3: //elipse
+            
+            case 3: //Elipse
                 txtConicas.text = "Elipse";
                 lr.material = matElipse;
                 ResetSlidersEtiquetas();
+                posPuntos = CreaElipse(a, b, h, k, t, resolucion);
                 break;
-            case 4: // parabola
+
+            case 4: //Parabola
                 txtConicas.text = "Parábola";
                 lr.material = matParabola;
                 ResetSlidersEtiquetas();
+                posPuntos = CreaParabola(b, h, k, t, resolucion);
+                lbl_a.gameObject.SetActive(false);
+                sl_a.gameObject.SetActive(false);
+                lnb_b.text = "p";
+
                 break;
-            case 5: //hiperbola
+
+            case 5: //Hipérbola
                 txtConicas.text = "Hipérbola";
                 lr.material = matHiperbola;
                 ResetSlidersEtiquetas();
+                posPuntos = CreaHiperbola(a, b, h, k, t, resolucion);
                 break;
-        }
-        for(int i= 0; i <= resolucion; i++){
-            lr.SetPosition(i, posPuntos[i]);
-        }
-        }
+            }  
+
+            for (int i= 0; i <= resolucion; i++){
+                lr.SetPosition(i, posPuntos[i]);
+
+            }
+
+
+        } 
+
+        
     }
 
+
     public void ResetSlidersEtiquetas(){
-        sld_a.gameObject.SetActive(true);
-        sld_b.gameObject.SetActive(true);
-        sld_h.gameObject.SetActive(true);
-        sld_k.gameObject.SetActive(true);
-        sld_t.gameObject.SetActive(true);
+        sl_a.gameObject.SetActive(true);
+        sl_b.gameObject.SetActive(true);
+        sl_h.gameObject.SetActive(true);
+        sl_k.gameObject.SetActive(true);
+        sl_t.gameObject.SetActive(true);
 
         lbl_a.gameObject.SetActive(true);
-        lbl_b.gameObject.SetActive(true);
-        lbl_h.gameObject.SetActive(true);
-        lbl_k.gameObject.SetActive(true);
-        lbl_t.gameObject.SetActive(true);
+        lnb_b.gameObject.SetActive(true);
+        lnb_h.gameObject.SetActive(true);
+        lnb_k.gameObject.SetActive(true);
+        lnb_t.gameObject.SetActive(true);
 
         lbl_a.text = "a";
-        lbl_b.text = "b";
-        lbl_h.text = "h";
-        lbl_k.text = "k";
-        lbl_t.text = "t";
+        lnb_b.text = "b";
+        lnb_h.text = "h";
+        lnb_k.text = "k";
+        lnb_t.text = "t";
     }
 
     public void BtnRecta(){
         conicaSeleccionada = 1;
-        DibujarConicas();
+        DibujaConicas();
     }
 
-    private Vector3[] CrearRecta(float ax, float ay, float bx, float by, int resolucion){
-        posPuntos = new Vector3[resolucion + 1];
+    private Vector3[] CreaRecta(float ax, float ay, float bx, float by, int resolucion){
+        posPuntos = new Vector3[resolucion+1];
         float dx = bx - ax;
         float dy = by - ay;
-        for (int i = 0; i <= resolucion; i++){
+
+        for (int i =0; i<= resolucion; i++){
             posPuntos[i] = new Vector3(ax + dx * i / resolucion, ay + dy * i / resolucion);
+        }
+        return posPuntos;
+    } 
+
+    public void BtnCircunferencia(){
+        conicaSeleccionada = 2;
+        DibujaConicas();
+    }
+
+    private Vector3[] CreaCircunferencia(float r, float h, float k, int resolucion){
+        posPuntos = new Vector3[resolucion+1];
+        Vector3 centro = new Vector3(h, k, 0);
+        for (int i = 0; i<= resolucion; i++){
+            float angulo = ((float)i / (float)resolucion) * 2 * Mathf.PI;
+            posPuntos[i] = new Vector3(r * Mathf.Cos(angulo), r * MathF.Sin(angulo), 0);
+            posPuntos[i] = posPuntos[i] + centro;
         }
         return posPuntos;
     }
 
-    public void BtnCircunferencia(){
-        conicaSeleccionada = 2;
-        DibujarConicas();
-    }
-
     public void BtnElipse(){
         conicaSeleccionada = 3;
-        DibujarConicas();
+        DibujaConicas();
+    }
+
+    private Vector3[] CreaElipse(float a, float b, float h, float k, float theta, int resolucion){
+        posPuntos = new Vector3[resolucion+1];
+        Quaternion q = Quaternion.AngleAxis(theta, Vector3.forward);
+
+        Vector3 centro = new Vector3(h, k, 0);
+
+        for (int i = 0; i<= resolucion; i++){
+            float angulo = ((float)i / (float)resolucion) * 2 * Mathf.PI;
+            posPuntos[i] = new Vector3(a * Mathf.Cos(angulo), b * MathF.Sin(angulo), 0);
+            posPuntos[i] = q * posPuntos[i] + centro;
+        }
+        return posPuntos;
     }
 
     public void BtnParabola(){
         conicaSeleccionada = 4;
-        DibujarConicas();
+        DibujaConicas();
+    }
+
+    private Vector3[] CreaParabola(float p, float h, float k, float theta, int resolucion){
+        posPuntos = new Vector3[resolucion+1];
+        Quaternion q = Quaternion.AngleAxis(theta, Vector3.forward);
+
+        Vector3 vertice = new Vector3(h, k, 0);
+
+        for (int i = 0; i<= resolucion; i++){
+            float angulo = ((float)i / (float)resolucion) * 2 * Mathf.PI;
+            posPuntos[i] = new Vector3(i-(resolucion/2), (1/(4*p)) * Mathf.Pow(i-(resolucion/2), 2), 0);
+            posPuntos[i] = q * posPuntos[i] + vertice;
+        }
+        return posPuntos;
     }
 
     public void BtnHiperbola(){
         conicaSeleccionada = 5;
-        DibujarConicas();
+        DibujaConicas();
     }
+
+    private Vector3[] CreaHiperbola(float a, float b, float h, float k, float theta, int resolucion){
+    posPuntos = new Vector3[resolucion + 1];
+    Quaternion q = Quaternion.AngleAxis(theta, Vector3.forward);
+
+    Vector3 centro = new Vector3(h, k, 0);
+
+    for (int i = 0; i <= resolucion / 2; i++){
+        float t = ((float)i / (resolucion / 2)) * 2 - 1; // Valores en el rango [-1, 1]
+        float x = a * (1 / Mathf.Cos(t));
+        float y = b * Mathf.Tan(t);
+
+        posPuntos[i] = q * new Vector3(x, y, 0) + centro;
+        posPuntos[resolucion - i] = q * new Vector3(-x, -y, 0) + centro; // Segunda rama
+    }
+
+    return posPuntos;
+}
+
 }
