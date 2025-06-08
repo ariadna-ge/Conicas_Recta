@@ -31,6 +31,6 @@ A continuación se muestran imagénes del ejecutable.
 ## Colaboradores ✍🏼
 El proyecto fue realizado para la materia de *Graficación por Computadora* en la Facultad de Estudios Superiores Aragón durante el semestre **2025-II**.
 
-💻 Cuevas Tello Eduardo **([cuevasedu04](https://github.com/cuevasedu04))**  
+💻 Eduardo Cuevas Tello  **([cuevasedu04](https://github.com/cuevasedu04))**  
 💻 Ariadna Denisse García Estrada **([ariadna-ge](https://github.com/ariadna-ge))**  
 💻 Gustavo Yael Ramos Badillo **([Yae1Ram0s](https://github.com/Yae1Ram0s))**  
